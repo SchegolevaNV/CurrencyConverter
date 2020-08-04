@@ -1,10 +1,10 @@
 spring.datasource.url: jdbc:postgresql://localhost:5432/converter
-spring.datasource.username: postgres
-spring.datasource.password: pass
+spring.datasource.username: converter_user
+spring.datasource.password: password
 spring.jpa.hibernate.ddl-auto: validate
 url: jdbc:postgresql://localhost:5432/converter
-username: postgres
-password: pass
+username: converter_user
+password: password
 
 #Constants for application
 session.attribute: login
