@@ -1,0 +1,129 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-create.yaml
+  - changeSet:
+      id: 1
+      author: ariwenn
+      changes:
+# Table for users
+        - createTable:
+              tableName: users
+              columns:
+                - column:
+                    name: id
+                    type: int
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                   name: login
+                   type: varchar(255)
+                   constraints:
+                     nullable: false
+                - column:
+                   name: password
+                   type: varchar(255)
+                   constraints:
+                     nullable: false
+# Table for currencies
+        - createTable:
+            tableName: currency
+            columns:
+              - column:
+                  name: currency_id
+                  type: varchar(10)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: num_code
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: char_code
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+# Table for rates
+        - createTable:
+            tableName: currency_rates
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: currency_code
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rate
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: false                            
+              - column:
+                  name: nominal
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: date
+                  constraints:
+                    nullable: false
+# Table for history
+        - createTable:
+            tableName: history
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false                  
+              - column:
+                  name: currency_from
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency_to
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: exchange_sum
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: false
+              - column:
+                  name: getting_sum
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rate_id
+                  type: int
+                  constraints:
+                    nullable: false
